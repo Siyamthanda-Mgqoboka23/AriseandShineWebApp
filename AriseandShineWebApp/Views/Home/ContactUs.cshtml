@@ -1,0 +1,169 @@
+﻿@model AriseandShineWebApp.Models.ContactUsViewModel
+
+@{
+    ViewData["Title"] = "Contact Us";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+    }
+
+    h1, h3, h4 {
+        color: #fff;
+    }
+
+    .form-label, label, .form-check-label {
+        color: #fff;
+    }
+
+    .btn-custom-red {
+        background-color: #ff0000;
+        border: none;
+        color: #fff;
+    }
+
+        .btn-custom-red:hover {
+            background-color: #cc0000;
+        }
+
+    .contact-top {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .map-container {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .intro-text {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .contact-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .contact-box {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 300px;
+        border: 0;
+    }
+
+    .btn-group {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-start;
+    }
+</style>
+
+<section class="container py-5">
+    <!-- Top Section: Map and Introduction -->
+    <div class="contact-top">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.803778659976!2d25.600035175404233!3d-33.894707061189656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7ad500653fd9d3%3A0xf9a5d6521759d4cd!2sArise%20and%20Shine%20Christian%20Church!5e0!3m2!1sen!2sza!4v1752109575897!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" 
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="intro-text">
+            <h1 class="fw-bold">CONTACT US</h1>
+            <p>Thank you for your interest in our church Arise and Shine Christian Church. Feel free to contact us via the form below or the contact information provided.</p>
+            <p>Arise and Shine Christian Church is an independent church that desires to help people discover God and grow in their relationship with Him. We strive to show Christ to the people of our community and beyond through loving them, serving them, and walking together.</p>
+            <p><a asp-controller="Home" asp-action="About" class="text-decoration-underline">To learn more about Arise and Shine Christian Church, please click here.</a></p>
+          
+        </div>
+    </div>
+
+    <!-- Contact Information and Forms -->
+    <div class="contact-section mb-5">
+        <!-- Address Section -->
+        <div class="contact-box">
+            <h4 class="fw-bold">Address</h4>
+            <p class="mb-1">
+                <strong>Church Address</strong><br />
+                Arise and Shine Christian Church<br />
+                C Avenue, New Brighton 2<br />
+                Ibhayi, 6200
+            </p>
+           
+         
+            <p class="mb-1">Phone: <a href="tel:0838472202" class="text-decoration-underline">083 847 2202</a></p>
+            <p>Email: <a href="mailto:office@thegatheringbc.org" class="text-decoration-underline">office@thegatheringbc.org</a></p>
+        </div>
+
+        <!-- Prayer Requests Form -->
+        <form asp-action="SendPrayerRequest" method="post" class="contact-box">
+            <h4 class="fw-bold">Prayer Requests</h4>
+            <div class="mb-3">
+                <input asp-for="PrayerRequest.Name" class="form-control" placeholder="Name" />
+                <span asp-validation-for="PrayerRequest.Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input asp-for="PrayerRequest.Email" class="form-control" placeholder="Email" />
+                <span asp-validation-for="PrayerRequest.Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" asp-for="PrayerRequest.AttendsChurch" value="true" />
+                    <label class="form-check-label">Yes, I attend The Gathering.</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" asp-for="PrayerRequest.AttendsChurch" value="false" />
+                    <label class="form-check-label">No, I do not attend The Gathering.</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <textarea asp-for="PrayerRequest.Request" class="form-control" rows="4" placeholder="Prayer Request"></textarea>
+                <span asp-validation-for="PrayerRequest.Request" class="text-danger"></span>
+            </div>
+            <div class="btn-group">
+                <button type="reset" class="btn btn-secondary">CLEAR</button>
+                <button type="submit" class="btn btn-custom-red">SEND</button>
+            </div>
+        </form>
+
+        <!-- Contact Form -->
+        <form asp-action="SubmitContactForm" method="post" class="contact-box">
+            <h4 class="fw-bold">Contact Form</h4>
+            <div class="mb-3">
+                <input asp-for="ContactForm.Name" class="form-control" placeholder="Name" />
+                <span asp-validation-for="ContactForm.Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input asp-for="ContactForm.Email" class="form-control" placeholder="Email" />
+                <span asp-validation-for="ContactForm.Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" asp-for="ContactForm.AttendsChurch" value="true" />
+                    <label class="form-check-label">Yes, I attend The Gathering.</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" asp-for="ContactForm.AttendsChurch" value="false" />
+                    <label class="form-check-label">No, I do not attend The Gathering.</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <textarea asp-for="ContactForm.Message" class="form-control" rows="4" placeholder="Message"></textarea>
+                <span asp-validation-for="ContactForm.Message" class="text-danger"></span>
+            </div>
+            <div class="btn-group">
+                <button type="reset" class="btn btn-secondary">CLEAR</button>
+                <button type="submit" class="btn btn-custom-red">SEND</button>
+            </div>
+        </form>
+    </div>
+</section>

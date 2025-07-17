@@ -1,0 +1,215 @@
+﻿@{
+    ViewData["Title"] = "About Us";
+}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+<style>
+    body {
+        background-color: #000;
+        color: #f0f0f0;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin: 50px 0 20px;
+        text-align: center;
+        color: red;
+    }
+
+    .subtitle {
+        font-size: 1.3rem;
+        color: #ddd;
+        text-align: center;
+        margin-bottom: 50px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+    }
+
+    .carousel-img {
+        width: 100%;
+        height: 320px; /* Reduced height */
+        object-fit: contain; /* Prevents cropping */
+        border-radius: 10px;
+        background-color: #111; /* Fills any blank space */
+    }
+
+    .text-block {
+        padding: 20px;
+    }
+
+    h4 {
+        color: red;
+        margin-top: 40px;
+    }
+
+    hr {
+        border-top: 2px solid #ccc;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .carousel-inner img {
+        border-radius: 10px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+    }
+</style>
+
+
+<div class="container mt-5">
+
+    <!-- Mission & Vision -->
+    <div class="section-title">Our Mission & Vision</div>
+    <div class="subtitle">
+        <strong>Mission:</strong> Raising a God-fearing generation through the Word and the power of the Holy Spirit.<br />
+        <strong>Vision:</strong> To see lives transformed and nations impacted by the gospel of Jesus Christ.
+    </div>
+
+    <!-- Founders Section -->
+    <div class="section-title">Our Founders</div>
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6 text-block">
+            <h3>Papa + Mama Dowse</h3>
+            <p><strong>Bishop Dowse</strong> is a Senior Pastor and visionary leader, anointed to raise a generation that walks in power and purity.</p>
+            <p><strong>Lady Bishop Dowse</strong> is a pillar of prayer, support, and wisdom, faithfully co-leading and building alongside her husband.</p>
+            <p>Together, they have been married for over 20 years and are blessed with two beautiful daughters who are also committed to the ministry, serving with passion and excellence.</p>
+        </div>
+        <div class="col-md-6">
+            <div id="foundersCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="~/images/founders.jpg" class="d-block w-100 carousel-img" alt="Papa and Mama Dowse 1" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/images/founders2.jpg" class="d-block w-100 carousel-img" alt="Papa and Mama Dowse 2" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/images/family.jpg" class="d-block w-100 carousel-img" alt="Dowse family with daughters" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/images/founders3.jpg" class="d-block w-100 carousel-img" alt="Papa and Mama Dowse 2" />
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#foundersCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#foundersCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leadership Team -->
+    <div class="section-title">Leadership Team</div>
+    <div id="leadershipCarousel" class="carousel slide mb-5" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/images/leadership1.jpg" class="d-block w-100 carousel-img" alt="Leadership Team 1" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/images/leadership.jpg" class="d-block w-100 carousel-img" alt="Leadership Team 2" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/images/leadership2.jpg" class="d-block w-100 carousel-img" alt="Leadership Team 2" />
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#leadershipCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#leadershipCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+
+    <!-- Church Building -->
+    <div class="section-title">Our New Building</div>
+    <div id="churchCarousel" class="carousel slide mb-5" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/images/new building2.jpg" class="d-block w-100 carousel-img" alt="Church under construction" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/images/new building3.jpg" class="d-block w-100 carousel-img" alt="Church during slab phase" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/images/new church building.jpg" class="d-block w-100 carousel-img" alt="Newly completed church building" />
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#churchCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#churchCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+
+    <!-- Church Ministries -->
+    <div class="section-title">Church Ministries</div>
+
+    <!-- Males Ministry -->
+    <h4>Males</h4>
+    <p>We are raising bold, prayerful men who walk in holiness, lead in humility, and build God’s kingdom in every area of life.</p>
+    @Html.Partial("_MinistryCarousel", new[] { "males.jpg", "males1.jpg", "males2.jpg" })
+
+    <hr />
+
+    <!-- Women Ministry -->
+    <h4>The Mothers</h4>
+    <p>A community of spiritual mothers, prayer warriors, and nurturers walking in godly wisdom and unity to support the church’s vision.</p>
+    @Html.Partial("_MinistryCarousel", new[] { "women.jpg", "women1.jpg", "women group.jpeg" })
+
+    <hr />
+
+    <!-- Daughters of Grace -->
+    <h4>Daughters of Grace</h4>
+    <p>This ministry is passionate about equipping young ladies to discover their identity in Christ, walk in purity, and serve with purpose.</p>
+    @Html.Partial("_MinistryCarousel", new[] { "young females.jpg", "young females1.jpg", "young demales2.jpg" })
+
+    <hr />
+
+    <!-- Youth Ministry -->
+    <h4>Youth Fellowship</h4>
+    <p>Empowering the next generation to be bold witnesses for Christ, unashamed of the gospel, and passionate in their worship.</p>
+    @Html.Partial("_MinistryCarousel", new[] { "youth.jpg","youth1.jpg" })
+
+    <hr />
+
+    <!-- Sunday School -->
+    <h4>Sunday School</h4>
+    <p>Training up children in the way they should go, using songs, stories, and love to introduce them to Jesus.</p>
+    @Html.Partial("_MinistryCarousel", new[] { "sunday school.jpg" })
+
+    <hr />
+
+    <!-- Worship & Media -->
+    <h4>Family</h4>
+    <p>Ministering through sound and visuals, this team creates an atmosphere for God to move through excellence in worship and tech.</p>
+    @Html.Partial("_MinistryCarousel", new[] { "wholechurch.jpg", "wholechurch1.jpg", "wholechurch2.jpg" })
+
+</div>
+<p>
+    At Arise and Shine Christian Church, we are witnessing a move of God—marriages 
+    being restored, young people set on fire for Jesus, and families being healed and 
+    united through prayer and the Word. People are discovering their identity in Christ, 
+    walking in deliverance, and being filled with the Holy Spirit. Testimonies continue to 
+    arise of jobs being found, minds renewed, and hearts being transformed by the power of 
+    God. Truly, Jesus is alive and changing lives!
+</p>
+
+<hr />
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>

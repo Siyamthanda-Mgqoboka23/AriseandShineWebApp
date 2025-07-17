@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AriseandShineWebApp.Models.Sermon>
+@{
+    ViewData["Title"] = "All Sermons";
+}
+
+<div class="container mt-5">
+    <h2>@ViewData["Title"]</h2>
+
+    <!-- 🔍 Search Bar -->
+    <form method="get" asp-action="Index">
+        <div class="input-group mb-3">
+            <input type="text" name="search" value="@ViewData["CurrentFilter"]" class="form-control" placeholder="Search sermons...">
+            <button type="submit" class="btn btn-outline-secondary">Search</button>
+        </div>
+    </form>
+
+    <!-- 📅 Sermon Table -->
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sermon in Model)
+            {
+                <tr>
+                    <td>@sermon.Title</td>
+                    <td>@sermon.Description</td>
+                    <td>@sermon.Date.ToString("yyyy-MM-dd")</td>
+                    <td>
+                        <a href="@sermon.FilePath" target="_blank" download class="btn btn-sm btn-success">📥 Read</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

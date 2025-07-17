@@ -1,0 +1,43 @@
+﻿@model AriseandShineWebApp.Models.Sermon
+
+@{
+    ViewData["Title"] = "Upload New Sermon";
+}
+
+<div class="container mt-5">
+    <!-- ✅ Add margin-top to push form below navbar -->
+
+    <h2>@ViewData["Title"]</h2>
+
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label"></label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Date" class="form-label">Sermon Date</label>
+            <input asp-for="Date" type="date" class="form-control" />
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Upload PDF File</label>
+            <input type="file" name="file" accept=".pdf" class="form-control" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Upload Sermon</button>
+    </form>
+
+</div> <!-- ✅ End of container -->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

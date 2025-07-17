@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        @ViewData["Title"] - <h2>Arise & Shine</h2>
+        <h3>  Christian Church</h3>
+
+    </title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AriseandShineWebApp.styles.css" asp-append-version="true" />
+    <style>
+        body {
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            padding-top: 70px;
+        }
+
+        .navbar {
+            background-color: #000;
+        }
+
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #ff0000 !important; /* Red on hover or active */
+        }
+
+        .btn-custom-red {
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-custom-red:hover {
+            background-color: #cc0000;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+        }
+
+        a {
+            color: #ff0000;
+        }
+
+        a:hover {
+            color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    @functions {
+        public string IsActive(string controller, string action)
+        {
+            var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+            var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+            return (currentController == controller && currentAction == action) ? "active" : "";
+        }
+    }
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center gap-2" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/Arise logo.png.jpg"  style="height: 60px;" />
+                    <div class="brand-text d-flex flex-column justify-content-center">
+                        <span class="text-white fw-bold" style="font-size: 1.4rem;">Arise & Shine</span>
+                        <span class="text-white" style="font-size: 1.2rem;">Christian Church</span>
+                    </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 fw-bold @(ViewContext.RouteData.Values["controller"].ToString() == "Home" && ViewContext.RouteData.Values["action"].ToString() == "Index" ? "active" : "")" asp-controller="Home" asp-action="Index">Home</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 fw-bold @(ViewContext.RouteData.Values["action"].ToString() == "About" ? "active" : "")" asp-controller="Home" asp-action="About">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 fw-bold @(ViewContext.RouteData.Values["controller"].ToString() == "Sermons" ? "active" : "")" asp-controller="Sermons" asp-action="Index">Sermons</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 fw-bold @(ViewContext.RouteData.Values["controller"].ToString() == "Teachings" ? "active" : "")" asp-controller="Teachings" asp-action="Index">Teachings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 fw-bold @(ViewContext.RouteData.Values["controller"].ToString() == "SoulWinning" ? "active" : "")" asp-controller="SoulWinning" asp-action="Index">Soul Winning</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 fw-bold @(ViewContext.RouteData.Values["action"].ToString() == "Give" ? "active" : "")" asp-controller="Home" asp-action="Give">Give</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 fw-bold @(ViewContext.RouteData.Values["action"].ToString() == "ContactUs" ? "active" : "")" asp-controller="Home" asp-action="ContactUs">Contact</a>
+                        </li>
+                       
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div class="text-center text-white bg-dark py-3">
+            &copy; @DateTime.Now.Year - Arise & Shine Christian Church. All rights reserved.
+        </div>
+    </footer>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

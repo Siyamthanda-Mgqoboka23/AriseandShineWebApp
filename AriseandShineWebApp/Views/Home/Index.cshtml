@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<!-- Hero Banner -->
+<section class="hero-banner">
+    <div class="video-container">
+       
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="@Url.Content("~/images/intro2.mp4")" type="video/mp4">
+        </video>
+    </div>
+    <div class="overlay">
+        <div class="text-content">
+            <h2 class="top-text">Welcome</h2>
+            <h1 class="bottom-text">To a place where you Arise and Shine</h1>
+            <a class="btn btn-custom-red" asp-controller="Home" asp-action="ContactUs">Join Us</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- About Us Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-uppercase text-danger">About Us</h2>
+            <p class="lead">We are a Christ-centered church family called to raise a generation of Kingdom champions who shine in every area of life.</p>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <h4 class="text-danger">Our Vision</h4>
+                <p>The vision of this church is to preach the Gospel of Jesus Christ to all nations and to establish His Kingdom. We exist to see God’s people arise and shine for the glory of the Lord has risen upon them.</p>
+                <p>We aim to make disciples—leaders, men & women of all nations—and to baptize and teach God’s people in accordance with Matthew 28:19–20.</p>
+            </div>
+            <div class="col-md-4">
+                <h4 class="text-danger">Our Mission</h4>
+                <p>To establish the Arise & Shine Christian Church around the country and the world. 
+                    We strive to build and unite the Body of Christ by preaching the Gospel through personal connection—one-on-one, house-to-house, in halls and tent revivals.</p>
+                <p>We follow the teachings of our Lord Jesus Christ, pray for the sick, encourage lifelong learning of God’s Word, and believe in the Holy Spirit. We worship God through the reading of the Bible, singing, and prayer.</p>
+            </div>
+            <div class="col-md-4">
+                <h4 class="text-danger">Our Values</h4>
+                <p>Love, Prayer, Holiness, Excellence, and Service – all for the glory of Jesus Christ.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Events Calendar Section -->
+<section class="py-5 calendar-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-uppercase text-danger">Upcoming Events</h2>
+            <p class="lead">Mark your calendar and join us in our exciting gatherings.</p>
+        </div>
+        <div class="calendar-container mx-auto">
+            <table class="table calendar-table text-white">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Date</th>
+                        <th>Event</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>August</td>
+                        <td class="text-danger fw-bold">8</td>
+                        <td> Females Camp</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+

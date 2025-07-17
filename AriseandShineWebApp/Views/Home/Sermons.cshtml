@@ -1,0 +1,27 @@
+﻿
+
+@{
+    ViewData["Title"] = "Sermons";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="container py-5 text-white">
+    <div class="text-center mb-4">
+        <h1 class="fw-bold">Latest Sermons</h1>
+        <p class="text-muted">Couldn’t attend church? Catch up on the Word here.</p>
+    </div>
+
+    @foreach (var sermon in Model)
+    {
+        <div class="card mb-4 bg-dark text-white shadow">
+            <div class="card-body">
+                <h4 class="card-title">@sermon.Title</h4>
+                <p class="card-subtitle mb-2 text-info">@sermon.Date.ToString("dddd, dd MMMM yyyy")</p>
+                <p class="card-text">@sermon.Content.Substring(0, Math.Min(150, sermon.Content.Length))...</p>
+
+                <a asp-action="Details" asp-route-id="@sermon.Id" class="btn btn-outline-info btn-sm">Read More</a>
+                <a href="@sermon.PdfFilePath" class="btn btn-outline-light btn-sm ms-2" download>Download PDF</a>
+            </div>
+        </div>
+    }
+</section>

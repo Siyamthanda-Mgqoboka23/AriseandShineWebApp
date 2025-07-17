@@ -1,0 +1,22 @@
+﻿@model string[]
+
+<div id="@("carousel" + Guid.NewGuid().ToString("N"))" class="carousel slide mb-3" data-ride="carousel">
+    <div class="carousel-inner">
+        @{
+            var first = true;
+            foreach (var image in Model)
+            {
+                <div class="carousel-item @(first ? "active" : "")">
+                    <img src="~/images/@image" class="d-block w-100 carousel-img" alt="@image" />
+                </div>
+                first = false;
+            }
+        }
+    </div>
+    <a class="carousel-control-prev" href="#@("carousel" + Guid.NewGuid().ToString("N"))" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#@("carousel" + Guid.NewGuid().ToString("N"))" role="button" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
